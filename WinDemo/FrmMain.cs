@@ -38,6 +38,7 @@ namespace WinDemo
             {
                 Console.WriteLine(e.ToString());
             }
+            FillGrid();
         }
 
         private void BtnLimpiar_Click(object sender, EventArgs e)
@@ -71,6 +72,23 @@ namespace WinDemo
             {
                 MessageBox.Show("Ocurrió un error al operar con el registro");
             }
+            FillGrid();
+        }
+
+        private void FillGrid()
+        {
+            if(conn.State != ConnectionState.Open)
+            {
+                return;
+            }
+            var select = "SELECT * FROM personas";
+            var dataAdapter = new SqlDataAdapter(select, conn);
+
+            var commandBuilder = new SqlCommandBuilder(dataAdapter);
+            var ds = new DataSet();
+            dataAdapter.Fill(ds);
+            DgvLista.ReadOnly = true;
+            DgvLista.DataSource = ds.Tables[0];
         }
 
         private int ExecPA(ACCION accion, Persona p)

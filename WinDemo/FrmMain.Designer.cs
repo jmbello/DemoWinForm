@@ -29,6 +29,7 @@ namespace WinDemo
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnLimpiar = new System.Windows.Forms.Button();
             this.TxtNroDocumento = new System.Windows.Forms.TextBox();
             this.DgvLista = new System.Windows.Forms.DataGridView();
@@ -67,6 +68,8 @@ namespace WinDemo
             // 
             // DgvLista
             // 
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.DgvLista.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DgvLista.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
